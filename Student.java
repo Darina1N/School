@@ -1,5 +1,10 @@
 package sk.kosickaakademia.kolesarova.school;
 
+import sk.kosickaakademia.kolesarova.school.hobby.Book;
+import sk.kosickaakademia.kolesarova.school.hobby.Hobby;
+import sk.kosickaakademia.kolesarova.school.hobby.Movie;
+import sk.kosickaakademia.kolesarova.school.hobby.Music;
+
 import java.time.LocalDate;
 
 
@@ -11,6 +16,8 @@ public class Student {
     private int salary;
     private LocalDate dob;//pomocou zapracovanej javovskej triedy
     private Grades grades; //Grades - trieda, grades s malým je názov premennej
+    private Hobby[] hobbies;
+    private int countHobbies;
 
     //metódy
     public Student(String firstName, String lastName, LocalDate dob, Grades grades, ClassName className,int salary){//konštruktor na vytvorenie nového študenta, vždy zadávam aj dátový typ premennej
@@ -20,6 +27,8 @@ public class Student {
         this.className=className;
         this.dob=dob;
         this.salary=salary;
+        hobbies=new Hobby[5];
+        countHobbies=0;
     }
 
     public void setSalary(int salary){
@@ -52,5 +61,28 @@ public class Student {
 
     public Grades getGrades(){
         return grades;
+    }
+    
+    public void addHobbies(Hobby newHobby){//metóda na pridávanie hobby
+        int len=hobbies.length;
+        if(countHobbies==len){
+            System.out.println("Nie je možné pridať ďalšie hobby");
+            return;
+        }
+        hobbies[countHobbies++]=newHobby;
+    }
+
+    public void printHobbies(){//metóda na vypísanie hobby študenta
+        System.out.println("Hobby študenta: ");
+        int len=hobbies.length;
+        for(int i=0;i<countHobbies;i++){
+            System.out.println(hobbies[i].getDruh()+", " +hobbies[i].getName());//vypíše z rodiča
+            if(hobbies[i] instanceof Book)//pri if sa pozerá na ďalšie premenné zadané v dedičných triedach
+                System.out.println(((Book) hobbies[i]).getAutor());
+            if(hobbies[i] instanceof Movie)
+                System.out.println(((Movie) hobbies[i]).getYear());
+            if(hobbies[i] instanceof Music)
+                System.out.println(((Music) hobbies[i]).getSkladatel());
+        }
     }
 }

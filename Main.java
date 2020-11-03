@@ -1,5 +1,7 @@
 package sk.kosickaakademia.kolesarova.school;
 
+import sk.kosickaakademia.kolesarova.school.hobby.*;
+
 import java.time.LocalDate;
 
 public class Main {
@@ -8,7 +10,9 @@ public class Main {
         students= initStudents();
         printN1Students(students);//metóda na vypísanie študentov 1N
         printStudentsWhereAverageLE2(students);//metóda ktorá mi vypíše študentov, ktorí majú priemer známok LE <= 2  GT > LT < GE >= EQ ==
-        printAge(students);//vypíše mi zoznam študentov a ich vek 
+        printAge(students);//vypíše mi zoznam študentov a ich vek
+
+
     }
 
     private static void printAge(Student[] students) {
@@ -54,21 +58,50 @@ public class Main {
         LocalDate datumS1=LocalDate.of(1995,01,17);
         Student s1 = new Student("Marek", "Baca",datumS1,gradesS1,ClassName.N1,100);
         stud[0]=s1;
+        Book b1=new Book("Marína","Poézia", "A. Sládkovič");
+        stud[0].addHobbies(b1);
+        Book b2= new Book("Mor ho!","Poézia","S. Chalúpka");
+        stud[0].addHobbies(b2);
+        Sport sp1=new Sport("Beh cez prekážky","Atletika");
+        stud[0].addHobbies(sp1);
+        Animal a1=new Animal("dog","spoločenské");
+        stud[0].addHobbies(a1);
+        Music mu1=new Music("4 ročné obdobia","Vážna hudba", "Vivaldi");
+        stud[0].addHobbies(mu1);
+        stud[0].printHobbies();
 
         Grades gradesS2=new Grades(1,2,1,1);
         LocalDate datumS2=LocalDate.of(1977,12,6);
         Student s2=new Student("Darina","Kolesárová",datumS2,gradesS2,ClassName.N2,250);
         stud[1]=s2;
+        Book b3=new Book("Trón zo skla","Fantasy","S. J. Maas");
+        stud[1].addHobbies(b3);
+        Book b4= new Book("Mág","Fantasy","R. E. Feist");
+        stud[1].addHobbies(b4);
+        Sport sp2=new Sport("Stolný tenis","Hra");
+        stud[1].addHobbies(sp2);
+        Movie m1=new Movie("Mulan","Animovaná rozprávka",1998);
+        stud[1].addHobbies(m1);
+        Animal a2=new Animal("Hedgehog","cicavec");
+        stud[1].addHobbies(a2);
+        stud[1].printHobbies();
 
         Grades gradesS3=new Grades(2,1,2,1);
         LocalDate datumS3=LocalDate.of(2000,06,23);
         Student s3= new Student("Janko","Hraško",datumS3,gradesS3,ClassName.N1,0);
         stud[2]=s3;
+        Movie m2=new Movie("To","horor",2017);
+        stud[2].addHobbies(m2);
+        Movie m3= new Movie("Halloween","horor",2018);
+        Sport sp3=new Sport("Box","bojové");
+        stud[2].addHobbies(sp3);
+        stud[2].printHobbies();
 
         Grades gradesS4=new Grades(1,1,1,1);
         LocalDate datumS4=LocalDate.of(1998,03,9);
         Student s4= new Student("Martin","Klingáč",datumS4,gradesS4,ClassName.N3,500);
         stud[3]=s4;
+
 
         Grades gradesS5=new Grades(2,2,2,2);
         LocalDate datumS5=LocalDate.of(1996,11,8);
