@@ -1,6 +1,10 @@
 package sk.kosickaakademia.kolesarova.school;
 
 import sk.kosickaakademia.kolesarova.school.hobby.*;
+import sk.kosickaakademia.kolesarova.school.pet.Cat;
+import sk.kosickaakademia.kolesarova.school.pet.Dog;
+import sk.kosickaakademia.kolesarova.school.pet.Fish;
+import sk.kosickaakademia.kolesarova.school.pet.Other;
 
 import java.time.LocalDate;
 
@@ -12,8 +16,8 @@ public class Main {
         printStudentsWhereAverageLE2(students);//metóda ktorá mi vypíše študentov, ktorí majú priemer známok LE <= 2  GT > LT < GE >= EQ ==
         printAge(students);//vypíše mi zoznam študentov a ich vek
 
-
     }
+
 
     private static void printAge(Student[] students) {
         int i;
@@ -69,6 +73,9 @@ public class Main {
         Music mu1=new Music("4 ročné obdobia","Vážna hudba", "Vivaldi");
         stud[0].addHobbies(mu1);
         stud[0].printHobbies();
+        stud[0].setAnimal(new Dog("Leo","bradáč"));
+        stud[0].printAnimal();
+
 
         Grades gradesS2=new Grades(1,2,1,1);
         LocalDate datumS2=LocalDate.of(1977,12,6);
@@ -85,6 +92,8 @@ public class Main {
         Animal a2=new Animal("Hedgehog","cicavec");
         stud[1].addHobbies(a2);
         stud[1].printHobbies();
+        stud[1].setAnimal(new Other("Blška","ježko"));
+        stud[1].printAnimal();
 
         Grades gradesS3=new Grades(2,1,2,1);
         LocalDate datumS3=LocalDate.of(2000,06,23);
@@ -96,17 +105,24 @@ public class Main {
         Sport sp3=new Sport("Box","bojové");
         stud[2].addHobbies(sp3);
         stud[2].printHobbies();
+        stud[2].setAnimal(new Fish("skalár",3));
+        stud[2].printAnimal();
 
         Grades gradesS4=new Grades(1,1,1,1);
         LocalDate datumS4=LocalDate.of(1998,03,9);
         Student s4= new Student("Martin","Klingáč",datumS4,gradesS4,ClassName.N3,500);
         stud[3]=s4;
+        stud[3].setAnimal(new Cat("Nefi","perská"));
+        stud[3].printAnimal();
 
 
         Grades gradesS5=new Grades(2,2,2,2);
         LocalDate datumS5=LocalDate.of(1996,11,8);
         Student s5= new Student("Marienka","Sladká",datumS5,gradesS5,ClassName.N1,50);
         stud[4]=s5;
+        stud[4].setAnimal(new Other("Pigi","škrečok"));
+        stud[4].setAnimal(new Cat("Murko","siamská"));
+        stud[4].printAnimal();
 
         Grades gradesS6=new Grades(2,3,2,1);
         LocalDate datumS6=LocalDate.of(2001,01,21);
