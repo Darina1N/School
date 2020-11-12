@@ -7,5 +7,6 @@ public class Main1 {
         ReadWriteFiles rwFile=new ReadWriteFiles();
         rwFile.copyFileWithCapital("resource/a.txt");
         rwFile.fileSifre("resource/a.txt");
+        rwFile.invisibleIorY("resource/a.txt");
     }
 }

@@ -47,7 +47,6 @@ public class ReadWriteFiles {
             while ((line = reader.readLine()) != null) {
                retazec+=line+'\n';
 
-
             }
             char[] arr=new char[retazec.length()];
             for(int i=0;i<retazec.length();i++){
@@ -83,6 +82,40 @@ public class ReadWriteFiles {
             ex.printStackTrace();
         }
     }
+
+    public void invisibleIorY(String fileName){
+        String line;
+
+        try {
+            FileReader fr = new FileReader(fileName);
+            BufferedReader reader = new BufferedReader(fr);
+
+            File file;
+            file = new File("Output/"+ getFileName('d'));
+            file.createNewFile();
+
+            FileWriter fw = new FileWriter(file);
+            String retazec="";
+
+            while ((line = reader.readLine()) != null) {
+                retazec+=line+'\n';
+            }
+
+            char[] arr=new char[retazec.length()];
+            for(int i=0;i<retazec.length();i++){
+                arr[i]=retazec.charAt(i);
+                if(arr[i]=='i'||arr[i]=='y'){
+                    fw.write("_");
+                }else fw.write(arr[i]);
+            }
+
+            fr.close();
+            fw.close();
+        } catch (IOException ex) {
+            ex.printStackTrace();
+        }
+    }
+
     private String getFileName(char prefix) {
             LocalTime time = LocalTime.now();
             int h = time.getHour();
